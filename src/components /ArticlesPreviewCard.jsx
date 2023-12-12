@@ -1,7 +1,7 @@
 
 
 const ArticlesPreviewCard = ({article}) => {
-    console.log(article.author)
+
 return (
 <div className="articles_preview_card">
 <h1>{article.title}</h1>

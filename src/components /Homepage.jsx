@@ -1,4 +1,4 @@
-import ArticlesList from "../ArticlesList"
+import ArticlesList from "../components /ArticlesList"
 import {Link } from "react-router-dom"
 
 
