@@ -5,6 +5,7 @@ import ArticlesPreviewCard from "./ArticlesPreviewCard";
 const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     getAllArticles().then((data) => {
       setArticles(data);
@@ -15,11 +16,13 @@ const ArticlesList = () => {
   return (
     <>
       <h1>All Articles</h1>
-      {loading === true ? 
+      {loading === true ? (
         <h1>Loading Now</h1>
-       : (
+      ) : (
         articles.map((article) => {
-          return <ArticlesPreviewCard article={article} />;
+          return (
+            <ArticlesPreviewCard key={article.article_id} article={article} />
+          );
         })
       )}
     </>
