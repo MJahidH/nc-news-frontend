@@ -18,3 +18,14 @@
   margin: 5%;
   border: 5px solid yellow;
 }
+
+.main_card_image {
+
+  max-width: 90%;;
+}
+
+.main_article_card {
+  background-color: darkred;
+
+  border: 5px solid yellow;
+}

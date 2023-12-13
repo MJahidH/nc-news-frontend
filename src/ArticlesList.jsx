@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+  import { useEffect, useState } from "react";
 import { getAllArticles } from "./utils";
 import ArticlesPreviewCard from "./components /ArticlesPreviewCard";
 
