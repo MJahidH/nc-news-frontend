@@ -5,24 +5,39 @@ import CommentCard from "./CommentCard";
 
 const CommentsList = () => {
   const [comments, setComments] = useState([]);
-  const {id} = useParams()
+  const { id } = useParams();
+  const [isLoading,setIsLoading] = useState(true);
 
   useEffect(() => {
-    
     getCommentsById(id).then((comment) => {
       setComments(comment);
+      setIsLoading(!isLoading);
     });
   }, []);
-  console.log(comments)
+  console.log(comments);
 
-  return (
-    <>
-      <h1>comments list </h1>
-      {comments.map((comment) => {
-   return <CommentCard key={comment.comment_id} comment={comment}/>
-})}
-    </>
-  );
+  if (isLoading === true) {
+    return (
+      <>
+        <h1>Is Loading</h1>
+      </>
+    );
+  } else if (comments.length === 0) {
+    return (
+      <>
+        <h1>No comments found </h1>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h1>comments list </h1>
+        {comments.map((comment) => {
+          return <CommentCard key={comment.comment_id} comment={comment} />;
+        })}
+      </>
+    );
+  }
 };
 
 export default CommentsList;
