@@ -1,11 +1,22 @@
 import { useParams } from "react-router-dom";
-import { getArticleById } from "../utils";
+import { getArticleById, patchVotes } from "../utils";
 import { useState, useEffect } from "react";
 
 const MainArticleCard = () => {
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
+  const {addVotes,setAddVotes} = useState({inc_value : 0})
 
+  useEffect(() => {
+    getArticleById(article_id).then((article) => {
+      setArticle(article);
+    });
+  }, []);
+
+  const handleClick = (event) => {
+
+    patchVotes({ inc_votes: 1 },article_id);
+  };
   useEffect(() => {
     getArticleById(article_id).then((article) => {
       setArticle(article);
@@ -19,6 +30,7 @@ const MainArticleCard = () => {
       <img className="main_card_image" src={article.article_img_url} />
       <p>Votes {article.body}</p>
       <p>Votes {article.votes}</p>
+      <button onClick={handleClick}>Upvote This Article</button>
       <p>{article.created_at}</p>
     </div>
   );
