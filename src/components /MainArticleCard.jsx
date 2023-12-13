@@ -5,23 +5,22 @@ import { useState, useEffect } from "react";
 const MainArticleCard = () => {
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
-  const {addVotes,setAddVotes} = useState({inc_value : 0})
 
-  useEffect(() => {
+
+  const fetchArticle = () => {
     getArticleById(article_id).then((article) => {
       setArticle(article);
     });
+  };
+
+  useEffect(() => {
+    fetchArticle();
   }, []);
 
   const handleClick = (event) => {
-
-    patchVotes({ inc_votes: 1 },article_id);
+    patchVotes({ inc_votes: 1 }, article_id);
+    fetchArticle();
   };
-  useEffect(() => {
-    getArticleById(article_id).then((article) => {
-      setArticle(article);
-    });
-  }, []);
 
   return (
     <div className="main_article_card">
