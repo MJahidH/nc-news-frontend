@@ -20,16 +20,17 @@
 }
 
 .main_card_image {
-
-  max-width: 90%;;
+  max-width: 90%;
 }
 .article_preview_card {
-
-  max-width: 90%;;
+  max-width: 90%;
 }
 
 .main_article_card {
   background-color: darkred;
 
   border: 5px solid yellow;
+}
+.comment_card {
+  border: 10px solid grey;
 }

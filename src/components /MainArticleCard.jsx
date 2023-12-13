@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import { getArticleById } from "../utils";
 import { useState, useEffect } from "react";
 
@@ -20,6 +20,7 @@ const MainArticleCard = () => {
       <p>Votes {article.body}</p>
       <p>Votes {article.votes}</p>
       <p>{article.created_at}</p>
+      <Link to={`/articles/${article.article_id}/comments`}> Show Comments</Link>
     </div>
   );
 };
