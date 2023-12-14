@@ -6,18 +6,20 @@ const AddComment = () => {
     body: "",
   });
 
+  const handlesubmit = (event) => {
+    event.preventDefault();
+  };
+
   const handleChange = (event) => {
-    console.log(event.target.value)
+    console.log(event.target.value);
     setNewComment({
       ...newComment,
       body: event.target.value,
     });
-    console.log(newComment,"after")
   };
-  
 
   return (
-    <form className="add_comment_form">
+    <form className="add_comment_form" onScroll={handlesubmit}>
       <input
         type="text"
         name="new_comment"
