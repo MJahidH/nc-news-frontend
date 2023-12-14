@@ -15,12 +15,13 @@ export const getArticleById = (article_id) => {
     });
 };
 
-
-export const patchVotes = (inc_votes,article_id) => {
-
-    return axios.patch(`https://nc-news-068s.onrender.com/api/articles/${article_id}`,inc_votes).then((res) => {
-    console.log(res.data,"utiles")
-    return res.data.data
-})
-
-}
+export const patchVotes = (inc_votes, article_id) => {
+  return axios
+    .patch(
+      `https://nc-news-068s.onrender.com/api/articles/${article_id}`,
+      inc_votes
+    )
+    .then((res) => {
+      return res.data.data;
+    });
+};

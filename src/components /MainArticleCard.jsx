@@ -6,20 +6,16 @@ const MainArticleCard = () => {
   const [article, setArticle] = useState([]);
   const { article_id } = useParams();
 
-
-  const fetchArticle = () => {
+  useEffect(() => {
     getArticleById(article_id).then((article) => {
       setArticle(article);
     });
-  };
-
-  useEffect(() => {
-    fetchArticle();
   }, []);
 
   const handleClick = (event) => {
-    patchVotes({ inc_votes: 1 }, article_id);
-    fetchArticle();
+    patchVotes({ inc_votes: 1 }, article_id).then((res) => {
+      setArticle(res);
+    });
   };
 
   return (
