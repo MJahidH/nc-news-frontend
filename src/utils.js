@@ -14,9 +14,21 @@ export const getArticleById = (article_id) => {
       return res.data.data;
     });
 };
+
 export const getCommentsById = (id) => {
   return axios
-    .get(`https://nc-news-068s.onrender.com/api/articles/${id}/comments`)
+    .get(`https://nc-news-068s.onrender.com/api/articles/${id}/comments`).then((res) => {
+return res.data.data
+  })}
+
+
+export const patchVotes = (inc_votes, article_id) => {
+  return axios
+    .patch(
+      `https://nc-news-068s.onrender.com/api/articles/${article_id}`,
+      inc_votes
+    )
+
     .then((res) => {
       return res.data.data;
     });

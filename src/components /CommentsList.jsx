@@ -6,11 +6,13 @@ import CommentCard from "./CommentCard";
 const CommentsList = () => {
   const [comments, setComments] = useState([]);
   const { id } = useParams();
-  const [isLoading,setIsLoading] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getCommentsById(id).then((comment) => {
       setComments(comment);
+
       setIsLoading(!isLoading);
     });
   }, []);
