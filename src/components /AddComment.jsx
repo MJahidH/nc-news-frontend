@@ -12,7 +12,9 @@ const AddComment = () => {
       ...newComment,
       body: event.target.value,
     });
+    console.log(newComment,"after")
   };
+  
 
   return (
     <form className="add_comment_form">
