@@ -1,17 +1,25 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
+import { postComment } from "../utils";
 
 const AddComment = () => {
   const [newComment, setNewComment] = useState({
-    username: "butter_bridge",
+    username: "jessjelly",
     body: "",
   });
+  const { id } = useParams();
+  console.log(useParams());
 
-  const handlesubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
+    setNewComment((currComment) => {
+      postComment(newComment, id).then(() => {
+       
+      })
+    })
   };
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setNewComment({
       ...newComment,
       body: event.target.value,
@@ -19,7 +27,7 @@ const AddComment = () => {
   };
 
   return (
-    <form className="add_comment_form" onScroll={handlesubmit}>
+    <form className="add_comment_form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="new_comment"

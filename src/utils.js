@@ -21,3 +21,17 @@ export const getCommentsById = (id) => {
       return res.data.data;
     });
 };
+
+export const postComment = (comment, id) => {
+  return axios
+    .post(
+      `https://nc-news-068s.onrender.com/api/articles/${id}/comments`,
+      comment
+    )
+    .then((res) => {
+      console.log(res);
+      return res.data
+    }).catch((err) => {
+      console.log(err)
+    })
+};
