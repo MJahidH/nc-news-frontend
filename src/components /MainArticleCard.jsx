@@ -13,9 +13,11 @@ const MainArticleCard = () => {
   }, []);
 
   const handleClick = (event) => {
-    patchVotes({ inc_votes: 1 }, article_id).then((res) => {
-      setArticle(res);
-    });
+    setArticle((currArticle) => ({
+      ...currArticle,
+      votes: currArticle.votes + 1,
+    }));
+    patchVotes({inc_votes : 1},article_id)
   };
 
   return (
