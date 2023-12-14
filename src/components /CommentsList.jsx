@@ -12,7 +12,7 @@ const CommentsList = () => {
       setComments(comment);
     });
   }, []);
-  console.log(comments);
+
 
   return (
     <>
