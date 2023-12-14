@@ -29,9 +29,7 @@ export const postComment = (comment, id) => {
       comment
     )
     .then((res) => {
-      console.log(res);
-      return res.data
-    }).catch((err) => {
-      console.log(err)
+      return res.data.comment;
     })
+    .catch((err) => {});
 };

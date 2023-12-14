@@ -7,16 +7,33 @@ const AddComment = () => {
     username: "jessjelly",
     body: "",
   });
+  const [ghostComment, setGhostComment] = useState(null);
   const { id } = useParams();
-  console.log(useParams());
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNewComment((currComment) => {
-      postComment(newComment, id).then(() => {
-       
+
+    // Set the ghost comment
+    setGhostComment({ ...newComment });
+
+    // Make the actual API request using .then()
+    postComment(newComment, id)
+      .then(() => {
+        // Update the UI based on the server response (in this case, clear the form)
+        setNewComment({
+          username: "jessjelly",
+          body: "",
+        });
+
+        // Reset the ghost comment
+        setGhostComment(null);
       })
-    })
+      .catch((error) => {
+        console.error("Error posting comment:", error);
+
+        // Reset the ghost comment if there's an error
+        setGhostComment(null);
+      });
   };
 
   const handleChange = (event) => {
@@ -38,6 +55,13 @@ const AddComment = () => {
       <button id="submit" type="submit">
         add comment
       </button>
+
+      {/* Display the ghost comment if available */}
+      {ghostComment && (
+        <div className="ghost-comment">
+          {ghostComment.username}: {ghostComment.body}
+        </div>
+      )}
     </form>
   );
 };
