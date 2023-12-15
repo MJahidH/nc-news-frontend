@@ -7,7 +7,7 @@ import AddComment from "./AddComment";
 const CommentsList = () => {
   const [comments, setComments] = useState([]);
   const { id } = useParams();
-  const [isLoading,setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     getCommentsById(id).then((comment) => {
@@ -15,7 +15,7 @@ const CommentsList = () => {
       setIsLoading(!isLoading);
     });
   }, []);
-  console.log(comments);
+
 
   if (isLoading === true) {
     return (
@@ -33,7 +33,7 @@ const CommentsList = () => {
     return (
       <>
         <h1>comments list </h1>
-        <AddComment/>
+        <AddComment setComments={setComments} allComments={comments} />
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
         })}
