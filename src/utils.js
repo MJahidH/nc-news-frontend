@@ -33,3 +33,20 @@ export const patchVotes = (inc_votes, article_id) => {
       return res.data.data;
     });
 };
+
+export const postComment = (comment, id) => {
+  return axios
+    .post(
+      `https://nc-news-068s.onrender.com/api/articles/${id}/comments`,
+      comment
+    )
+    .then((res) => {
+      return res.data.comment;
+    })
+    .catch((err) => {});
+};
+
+export const deleteComment = (comment_id) =>{
+return axios.delete(`https://nc-news-068s.onrender.com/api/comments/${comment_id}`)
+
+}

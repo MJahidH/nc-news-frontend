@@ -1,17 +1,32 @@
 import { useState } from "react";
 
-const AddComment = () => {
+import { useParams } from "react-router-dom";
+import { postComment } from "../utils";
+
+const AddComment = (prop) => {
+  const { allComments, setComments } = prop;
+  console.log(allComments, setComments, "add comment function");
   const [newComment, setNewComment] = useState({
-    username: "butter_bridge",
+    username: "jessjelly",
     body: "",
   });
 
-  const handlesubmit = (event) => {
+  const { id } = useParams();
+
+  const handleSubmit = (event) => {
     event.preventDefault();
+    setComments([...allComments, newComment]);
+    console.log(allComments, "handle submit");
+
+    postComment(newComment, id).then(() => {
+      setNewComment({
+        username: "jessjelly",
+        body: "",
+      });
+    });
   };
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setNewComment({
       ...newComment,
       body: event.target.value,
@@ -19,7 +34,7 @@ const AddComment = () => {
   };
 
   return (
-    <form className="add_comment_form" onScroll={handlesubmit}>
+    <form className="add_comment_form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="new_comment"

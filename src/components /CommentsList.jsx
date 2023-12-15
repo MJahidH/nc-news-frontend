@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getCommentsById } from "../utils";
 import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
+import AddComment from "./AddComment";
 
 const CommentsList = () => {
   const [comments, setComments] = useState([]);
@@ -16,7 +17,6 @@ const CommentsList = () => {
       setIsLoading(!isLoading);
     });
   }, []);
-  console.log(comments);
 
   if (isLoading === true) {
     return (
@@ -34,6 +34,7 @@ const CommentsList = () => {
     return (
       <>
         <h1>comments list </h1>
+        <AddComment setComments={setComments} allComments={comments} />
         {comments.map((comment) => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
         })}

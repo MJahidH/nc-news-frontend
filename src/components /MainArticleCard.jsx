@@ -41,6 +41,9 @@ const MainArticleCard = () => {
         <p>Votes {article.body}</p>
         <p>Votes {article.votes}</p>
         <button onClick={handleClick}>Upvote This Article</button>
+        <h3>
+        <Link to={`/articles/${article.article_id}/comments`}>Go To Comments</Link>
+      </h3>
         <p>{article.created_at}</p>
       </div>
     );
