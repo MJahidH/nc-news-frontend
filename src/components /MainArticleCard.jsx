@@ -36,14 +36,18 @@ const MainArticleCard = () => {
     return (
       <div className="main_article_card">
         <h1>{article.title}</h1>
-        <h2>{article.author}</h2>
+        <h2> By {article.author}</h2>
         <img className="main_card_image" src={article.article_img_url} />
         <p>Votes {article.body}</p>
         <p>Votes {article.votes}</p>
-        <button onClick={handleClick}>Upvote This Article</button>
-        <h3>
-        <Link to={`/articles/${article.article_id}/comments`}>Go To Comments</Link>
-      </h3>
+        <div className="button_container">
+        <button className="upvotes_button" onClick={handleClick}>Upvote This Article</button>
+        <button className="comments_button" onClick={()=>{
+          window.location.href=`/articles/${article.article_id}/comments`
+        }}>
+         Go To Comments
+      </button>
+        </div>
         <p>{article.created_at}</p>
       </div>
     );

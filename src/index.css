@@ -34,3 +34,27 @@
 .comment_card {
   border: 10px solid grey;
 }
+
+.button_container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.comments_button,
+.upvotes_button {
+  width: 250px;
+  height: 40px;
+}
+
+.upvotes_button {
+  background-color: darkgreen;
+  border-radius: 10px;
+}
+
+.comments_button {
+  background-color: darkgoldenrod;
+  color: black;
+  border-radius: 10px;
+}
