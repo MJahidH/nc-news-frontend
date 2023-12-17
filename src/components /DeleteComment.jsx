@@ -1,10 +1,13 @@
 import { deleteComment } from "../utils";
 
 const DeleteComment = (props) => {
-  const {comment_id} = props
+  const {comment_id,comments,setComments} = props
     const handleClick = () => {
 deleteComment(comment_id).then((res)=>{
-    console.log(res)
+     const remainingComments = comments.filter((comment)=>{
+       return comment.comment_id !== comment_id
+     })
+     setComments(remainingComments)
 }).catch((err)=>{
     console.log(err,"error")
 })

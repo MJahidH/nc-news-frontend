@@ -36,7 +36,7 @@ const CommentsList = () => {
         <h1>comments list </h1>
         <AddComment setComments={setComments} allComments={comments} />
         {comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} comment={comment} />;
+          return <CommentCard comments={comments} setComments={setComments} key={comment.comment_id} comment={comment} />;
         })}
       </>
     );
