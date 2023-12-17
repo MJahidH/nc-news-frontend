@@ -5,7 +5,7 @@ import { postComment } from "../utils";
 
 const AddComment = (prop) => {
   const { allComments, setComments } = prop;
-  console.log(allComments, setComments, "add comment function");
+
   const [newComment, setNewComment] = useState({
     username: "jessjelly",
     body: "",
@@ -15,10 +15,12 @@ const AddComment = (prop) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setComments([...allComments, newComment]);
-    console.log(allComments, "handle submit");
+    
+    
 
-    postComment(newComment, id).then(() => {
+    postComment(newComment, id).then((res) => {
+      setComments([res,...allComments]);
+      console.log([res,...allComments], "handle submit");
       setNewComment({
         username: "jessjelly",
         body: "",

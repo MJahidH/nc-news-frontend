@@ -36,7 +36,7 @@ const MainArticleCard = () => {
     return (
       <div className="main_article_card">
         <h1>{article.title}</h1>
-        <h2> By {article.author}</h2>
+        <h2> By ls{article.author}</h2>
         <img className="main_card_image" src={article.article_img_url} />
         <p>Votes {article.body}</p>
         <p>Votes {article.votes}</p>
