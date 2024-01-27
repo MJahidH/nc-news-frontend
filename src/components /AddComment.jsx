@@ -38,14 +38,15 @@ const AddComment = (prop) => {
   return (
     <form className="add_comment_form" onSubmit={handleSubmit}>
       <input
+        className="add_comment_text_field"
         type="text"
         name="new_comment"
         placeholder="Input Comment Here"
         value={newComment.body}
         onChange={handleChange}
       />
-      <button id="submit" type="submit">
-        add comment
+      <button className="submit_button" id="submit" type="submit">
+        Add comment
       </button>
     </form>
   );
