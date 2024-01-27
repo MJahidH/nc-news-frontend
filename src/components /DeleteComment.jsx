@@ -16,7 +16,7 @@ deleteComment(comment_id).then((res)=>{
     
   return (
     <>
-      <button onClick={handleClick}>Delete Comment</button>
+      <button className="delete_button" onClick={handleClick}>Delete Comment</button>
     </>
   );
 };

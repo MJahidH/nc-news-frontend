@@ -19,6 +19,22 @@
   border: 5px solid yellow;
 }
 
+.homepage_container {
+
+  background-color: darkred;
+  border: 5px solid yellow;
+  width: 100%;
+  max-width: 800px;
+  height: 1000%;
+  max-height: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
 .main_card_image {
   max-width: 90%;
 }
@@ -57,4 +73,14 @@
   background-color: darkgoldenrod;
   color: black;
   border-radius: 10px;
+}
+
+.delete_button {
+border: 1px solid transparent;
+padding: 5%;
+padding-left: 70%;
+color: red;
+font-size: medium;
+
+
 }
