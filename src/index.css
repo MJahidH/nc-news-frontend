@@ -12,11 +12,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-.articles_preview_card {
-  background-color: darkred;
-  margin: 5%;
-  border: 5px solid yellow;
+.homepage_title {
+  font-size: 300%;
+  color: yellow;
+margin-top: 44%;
 }
 
 .homepage_container {
@@ -35,6 +34,12 @@
   /* display: flex; */
   justify-content: center;
   align-items: center;
+}
+
+.articles_preview_card {
+  background-color: darkred;
+  margin: 5%;
+  border: 5px solid yellow;
 }
 
 .main_card_image {

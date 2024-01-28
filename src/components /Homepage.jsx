@@ -4,10 +4,15 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <div className="homepage_container">
-      <h1> Welcome To NC News!</h1>
-      <nav>
-        <Link to="/articles">All Articles</Link>
-      </nav>
+      <h1 className="homepage_title"> Welcome To NC News!</h1>
+      <button
+        className="all_articles_button"
+        onClick={() => {
+          window.location.href = `/articles`;
+        }}
+      >
+        All Articles
+      </button>
     </div>
   );
 };
