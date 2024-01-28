@@ -20,14 +20,19 @@
 }
 
 .homepage_container {
+  position: absolute;
   background-color: darkred;
   border: 5px solid yellow;
+  height: 100%;
   width: 100%;
   max-width: 800px;
-  height: 1000%;
-  max-height: 800px;
-  margin: auto;
-  display: flex;
+
+  /* height: 1000%;
+  max-height: 2000px; */
+  margin: 10%;
+  /* padding-top: 20%; */
+  /* padding-bottom: 20%; */
+  /* display: flex; */
   justify-content: center;
   align-items: center;
 }
