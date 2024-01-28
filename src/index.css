@@ -17,7 +17,8 @@
   color: yellow;
   margin-top: 44%;
 }
-.all_articles_button {
+.all_articles_button,
+.main_article_card_button{
   width: 25%;
   height: 10%;
 border-radius: 10px;
