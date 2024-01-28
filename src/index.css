@@ -15,7 +15,14 @@
 .homepage_title {
   font-size: 300%;
   color: yellow;
-margin-top: 44%;
+  margin-top: 44%;
+}
+.all_articles_button {
+  width: 25%;
+  height: 10%;
+border-radius: 10px;
+  font-size: 200%;
+  background-color: darkgreen;
 }
 
 .homepage_container {
