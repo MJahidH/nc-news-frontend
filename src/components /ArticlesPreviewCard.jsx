@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 
 const ArticlesPreviewCard = ({ article }) => {
+
+  
   return (
     <div className="articles_preview_card">
       <h1>{article.title}</h1>
